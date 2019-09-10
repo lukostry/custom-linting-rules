@@ -1,0 +1,30 @@
+{
+  "name": "eslint-test",
+  "version": "1.0.0",
+  "description": "Writing custom linting rules",
+  "main": "index.js",
+  "author": "Lukasz Ostrowski",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^11.9.5",
+    "@typescript-eslint/experimental-utils": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
+    "eslint": "6.2.2",
+    "esutils": "^2.0.2",
+    "jest": "24.9.0",
+    "ts-jest": "24.0.2",
+    "typescript": "3.5.1"
+  },
+  "scripts": {
+    "clear": "rm -rf linting-rules/dist",
+    "build": "yarn clear && cd linting-rules/ && tsc -p tsconfig.build.json",
+    "lint": "eslint --fix --rulesdir linting-rules/dist/ --ext .js,.ts src/",
+    "test": "jest",
+    "verify": "yarn build && yarn lint"
+  },
+  "devDependencies": {
+    "@types/eslint": "^4.16.6"
+  }
+}
